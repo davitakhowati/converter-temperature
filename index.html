@@ -11,5 +11,36 @@
     <label for="inputFahrenheit">Fahrenheit:</label>
     <input type="number" id="inputFahrenheit" placeholder="input fahrenheit"
     oninput="temperatureConverter(this.value)">
+    <p>Celcius: <span id="outputCelcius"></span></p>
+    <p>Kelvin: <span id="outputKelvin"></span></p>
+    <p>Reamur: <span id="outputReamur"></span></p>
+
+    <script>
+        function temperatureConverter() {
+            var f = document.getElementById("inputFahrenheit").value;
+
+            var countc = (f-32)/1.8;
+            var c = countc.toFixed(2);
+            document.getElementById("outputCelcius").innerHTML = parseFloat(c) + " °C";
+
+            var countk = ((f-32)/1.8) + 273.15;
+            var k = countk.toFixed(2);
+            document.getElementById("outputKelvin").innerHTML = parseFloat(k) + " K";
+
+            var countr = (f-32) / 2.25;
+            var r = countr.toFixed(2);
+            document.getElementById("outputReamur").innerHTML = parseFloat(r) + " °R";
+        }
+    </script>
+
+
+
+
+    <!--Convert from Fahrenheit to Celsius ℃=(℉-32)/1.8
+Convert from Fahrenheit to Kelvin K=((℉-32)/1.8)+273.15
+Convert from Celsius to Fahrenheit ℉=(℃*1.8)+32
+Convert from Celsius to Kelvin K=℃+273.15
+Convert from Kelvin to Fahrenheit ℉=((K-273.15)*1.8)+32
+Convert from Kelvin to Celsius ℃=K-273.15-->
 </body>
 </html>

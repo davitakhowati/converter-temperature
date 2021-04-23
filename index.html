@@ -8,28 +8,92 @@
 </head>
 <body>
     <h1>Create a Temperature Converter</h1>
-    <label for="inputFahrenheit">Fahrenheit:</label>
-    <input type="number" id="inputFahrenheit" placeholder="input fahrenheit"
-    oninput="temperatureConverter(this.value)">
+    <ul>
+        <li>
+            <label for="inputFahrenheit">Fahrenheit:</label><br>
+            <input type="number" id="inputFahrenheit" placeholder="input Fahrenheit" oninput="fahrenheitConverter(this.value)">
+        </li>
+        <li>
+            <label for="inputCelcius">Celcius:</label><br>
+            <input type="number" id="inputCelcius" placeholder="input Celcius" oninput="celciusConverter(this.value)">
+        </li>
+        <li>
+            <label for="inputKelvin">Kelvin:</label><br>
+            <input type="number" id="inputKelvin" placeholder="input Kelvin" oninput="kelvinConverter(this.value)">
+        </li>
+    </ul>
+    
+    <p>Fahrenheit: <span id="outputFahrenheit"></span></p>
     <p>Celcius: <span id="outputCelcius"></span></p>
     <p>Kelvin: <span id="outputKelvin"></span></p>
-    <p>Reamur: <span id="outputReamur"></span></p>
+
+    <button onclick="clearField()">Clear input field</button>
 
     <script>
-        function temperatureConverter() {
-            var f = document.getElementById("inputFahrenheit").value;
+        function clearField() {
+            document.getElementById('inputFahrenheit').value = '';
+            document.getElementById('inputCelcius').value = '';
+            document.getElementById('inputKelvin').value = '';
+            document.getElementById('outputFahrenheit').innerHTML = '';
+            document.getElementById('outputCelcius').innerHTML = '';
+            document.getElementById('outputKelvin').innerHTML = '';
+        }
 
-            var countc = (f-32)/1.8;
-            var c = countc.toFixed(2);
-            document.getElementById("outputCelcius").innerHTML = parseFloat(c) + " °C";
+        function fahrenheitConverter() {
+            var fromfah = document.getElementById("inputFahrenheit").value;
+            document.getElementById("outputFahrenheit").innerHTML = fromfah + " °F";
 
-            var countk = ((f-32)/1.8) + 273.15;
-            var k = countk.toFixed(2);
-            document.getElementById("outputKelvin").innerHTML = parseFloat(k) + " K";
+            var countfahtocel = (fromfah-32)/1.8;
+            var fahtocel = countfahtocel.toFixed(2);
+            document.getElementById("outputCelcius").innerHTML = parseFloat(fahtocel) + " °C";
 
-            var countr = (f-32) / 2.25;
-            var r = countr.toFixed(2);
-            document.getElementById("outputReamur").innerHTML = parseFloat(r) + " °R";
+            var countfahtokel = ((fromfah-32)/1.8) + 273.15;
+            var fahtokel = countfahtokel.toFixed(2);
+            document.getElementById("outputKelvin").innerHTML = parseFloat(fahtokel) + " K";
+
+            if ( fromfah == "") {
+                document.getElementById('outputFahrenheit').innerHTML = '';
+                document.getElementById('outputCelcius').innerHTML = '';
+                document.getElementById('outputKelvin').innerHTML = '';
+            }
+        }
+
+        function celciusConverter() {
+            var fromcel = document.getElementById("inputCelcius").value;
+            document.getElementById("outputCelcius").innerHTML = fromcel + " °C";
+
+            var countceltofah = (fromcel*1.8)+32;
+            var celtofah = countceltofah.toFixed(2);
+            document.getElementById("outputFahrenheit").innerHTML = parseFloat(celtofah) + " °F";
+
+            var countceltokel = parseFloat(fromcel)+273.15;
+            var celtokel = countceltokel.toFixed(2);
+            document.getElementById("outputKelvin").innerHTML = celtokel + " K";
+
+            if ( fromcel == "") {
+                document.getElementById('outputFahrenheit').innerHTML = '';
+                document.getElementById('outputCelcius').innerHTML = '';
+                document.getElementById('outputKelvin').innerHTML = '';
+            }
+        }
+
+        function kelvinConverter() {
+            var fromkel = document.getElementById("inputKelvin").value;
+            document.getElementById("outputKelvin").innerHTML = fromkel + " K";
+
+            var countkeltofah = ((fromkel-273.15)*1.8)+32;
+            var keltofah = countkeltofah.toFixed(2);
+            document.getElementById("outputFahrenheit").innerHTML = parseFloat(keltofah) + " °F";
+
+            var countkeltocel = fromkel - 273.15;
+            var keltocel = countkeltocel.toFixed(2);
+            document.getElementById("outputCelcius").innerHTML = parseFloat(keltocel) + " °C";
+
+            if ( fromkel == "") {
+                document.getElementById('outputFahrenheit').innerHTML = '';
+                document.getElementById('outputCelcius').innerHTML = '';
+                document.getElementById('outputKelvin').innerHTML = '';
+            }
         }
     </script>
 

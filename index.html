@@ -5,29 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <h1>Create a Temperature Converter</h1>
-    <ul>
-        <li>
-            <label for="inputFahrenheit">Fahrenheit:</label><br>
-            <input type="number" id="inputFahrenheit" placeholder="input Fahrenheit" oninput="fahrenheitConverter(this.value)">
-        </li>
-        <li>
-            <label for="inputCelcius">Celcius:</label><br>
-            <input type="number" id="inputCelcius" placeholder="input Celcius" oninput="celciusConverter(this.value)">
-        </li>
-        <li>
-            <label for="inputKelvin">Kelvin:</label><br>
-            <input type="number" id="inputKelvin" placeholder="input Kelvin" oninput="kelvinConverter(this.value)">
-        </li>
-    </ul>
-    
-    <p>Fahrenheit: <span id="outputFahrenheit"></span></p>
-    <p>Celcius: <span id="outputCelcius"></span></p>
-    <p>Kelvin: <span id="outputKelvin"></span></p>
-
-    <button onclick="clearField()">Clear input field</button>
+    <div class="header d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row">
+                <h1 class="title col-lg-12">Create a Temperature Converter</h1>
+            </div>
+        </div>
+    </div>
+    <div class="input-divider d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row">
+                <p class="input-order col-lg-12">Input Temperature</p>
+            </div>
+        </div>
+    </div>
+    <div class="input-content d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 input">
+                    <label for="inputFahrenheit">Fahrenheit</label><br>
+                    <input type="number" id="inputFahrenheit" placeholder="0°F" 
+                    oninput="fahrenheitConverter(this.value)">
+                </div>
+                <div class="col-lg-4 input">
+                    <label for="inputCelcius">Celcius</label><br>
+                    <input type="number" id="inputCelcius" placeholder="0°C" 
+                    oninput="celciusConverter(this.value)">
+                </div>
+                <div class="col-lg-4 input">
+                    <label for="inputKelvin">Kelvin</label><br>
+                    <input type="number" id="inputKelvin" placeholder="0 K" 
+                    oninput="kelvinConverter(this.value)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="output-divider d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row">
+                <p class="output-order col-lg-12">Output Temperature</p>
+            </div>
+        </div>
+    </div>
+    <div class="output-content d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 output"><p>Fahrenheit<br><span id="outputFahrenheit">0°F</span></p></div>
+                <div class="col-lg-4 output"><p>Celcius<br><span id="outputCelcius">0°C</span></p></div>
+                <div class="col-lg-4 output"><p>Kelvin<br><span id="outputKelvin">0 K</span></p></li></div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

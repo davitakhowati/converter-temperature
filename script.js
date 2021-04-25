@@ -1,11 +1,3 @@
-function clearField() {
-    document.getElementById('inputFahrenheit').value = '';
-    document.getElementById('inputCelcius').value = '';
-    document.getElementById('inputKelvin').value = '';
-    document.getElementById('outputFahrenheit').innerHTML = '';
-    document.getElementById('outputCelcius').innerHTML = '';
-    document.getElementById('outputKelvin').innerHTML = '';
-}
 function fahrenheitConverter() {
     var fromfah = document.getElementById("inputFahrenheit").value;
     document.getElementById("outputFahrenheit").innerHTML = fromfah + "°F";
@@ -54,7 +46,37 @@ function kelvinConverter() {
     var keltocel = countkeltocel.toFixed(2);
     document.getElementById("outputCelcius").innerHTML = parseFloat(keltocel) + "°C";
 
-    if ( fromkel == "") {
+    if ( fromkel == "" ) {
+        document.getElementById('outputFahrenheit').innerHTML = '0°F';
+        document.getElementById('outputCelcius').innerHTML = '0°C';
+        document.getElementById('outputKelvin').innerHTML = '0 K';
+    }
+}
+function clearInput() {
+    var fromkel = document.getElementById("inputKelvin").value;
+    var fromcel = document.getElementById("inputCelcius").value;
+    var fromfah = document.getElementById("inputFahrenheit").value;
+
+    if ( fromkel != "" ) {
+        document.getElementById('inputFahrenheit').value = '0°F';
+        document.getElementById('inputCelcius').value = '0°C';
+        document.getElementById('inputKelvin').value = '0 K';
+        document.getElementById('outputFahrenheit').innerHTML = '0°F';
+        document.getElementById('outputCelcius').innerHTML = '0°C';
+        document.getElementById('outputKelvin').innerHTML = '0 K';
+    }
+    else if ( fromcel != ""){
+        document.getElementById('inputFahrenheit').value = '0°F';
+        document.getElementById('inputCelcius').value = '0°C';
+        document.getElementById('inputKelvin').value = '0 K';
+        document.getElementById('outputFahrenheit').innerHTML = '0°F';
+        document.getElementById('outputCelcius').innerHTML = '0°C';
+        document.getElementById('outputKelvin').innerHTML = '0 K';
+    }
+    else if ( fromfah != ""){
+        document.getElementById('inputFahrenheit').value = '0°F';
+        document.getElementById('inputCelcius').value = '0°C';
+        document.getElementById('inputKelvin').value = '0 K';
         document.getElementById('outputFahrenheit').innerHTML = '0°F';
         document.getElementById('outputCelcius').innerHTML = '0°C';
         document.getElementById('outputKelvin').innerHTML = '0 K';

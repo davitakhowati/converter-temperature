@@ -82,9 +82,10 @@ h1.title {
 
 p.input-order {
     text-align: center;
-    background-color: #00BCD4;
+    background-color: #B373CE;
     color: white;
     padding: 5px 5px;
+    font-weight: 600;
 }
 
 ul.input li {
@@ -99,8 +100,7 @@ ul.input li {
 }
 
 #inputFahrenheit, #inputCelcius, #inputKelvin {
-    color: #FFCA28;
-    box-sizing: border-box;
+    color: #FB978D;
     border: none;
     width: 200px;
     height: 70px;
@@ -113,19 +113,32 @@ ul.input li {
 #inputFahrenheit::-webkit-inner-spin-button, 
 #inputCelcius::-webkit-inner-spin-button,
 #inputKelvin::-webkit-inner-spin-button {  
-   opacity: 1;
+   opacity: 0;
 }
 
-#inputFahrenheit::placeholder, #inputCelcius::placeholder, #inputKelvin::placeholder {
-    color: #FFCA28;
+#inputFahrenheit::placeholder, 
+#inputCelcius::placeholder, 
+#inputKelvin::placeholder {
+    color: #FB978D;
+}
+
+#inputFahrenheit:focus,
+#inputCelcius:focus,
+#inputKelvin:focus {
+    outline: none;
+}
+
+.output-divider {
+    margin-top: 50px;
 }
 
 p.output-order {
     text-align: center;
-    background-color: #00BCD4;
+    background-color: #B373CE;
     color: white;
-    margin-top: 70px;
+    margin-top: 40px;
     padding: 5px 5px;
+    font-weight: 600;
 }
 
 .output {
@@ -140,5 +153,5 @@ p.output-order {
     font-size: 1.8em;
     font-weight: bolder;
     font-family: 'Courier New', Courier, monospace;
-    color: lightcoral;
+    color: #FBC282;
 }
